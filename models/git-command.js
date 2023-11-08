@@ -12,6 +12,24 @@ class GitCommand {
     //Command: git status
     // Paste the codes you already did from the "Git Out Bug!" assignment
     // status(){}
+    //Command: git status
+    status(){        
+        /*
+            Create logic here and run unit testing.
+        */
+       const modified_files     = this.working_directory.new_changes;
+       const numberOfPath_file  = Object.keys(modified_files).length; 
+       let message            = `You have ${numberOfPath_file} change/s.`;
+
+       if(numberOfPath_file > 0) {
+            for(const key in modified_files) {
+                message += `\n${key}`;
+            }
+            return message;
+       } else {
+            return 'You have 0 change/s.\n';
+       }
+    }
 
     //Command: git add <filename/file directory/wildcard> 
     add(path_file){
